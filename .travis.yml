@@ -19,3 +19,5 @@ after_success:
   - docker push fango2007/multi-nginx
   - docker push fango2007/multi-server
   - docker push fango2007/multi-worker
+
+  
