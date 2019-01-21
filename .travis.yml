@@ -3,21 +3,21 @@ services:
   - docker
 
 before_install:
-  - docker build -t fango2007/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t fango007/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run fango2007/react-test npm test -- --coverage
+  - docker run fango007/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t fango2007/multi-client ./client
-  - docker build -t fango2007/multi-nginx ./nginx
-  - docker build -t fango2007/multi-server ./server
-  - docker build -t fango2007/multi-worker ./worker
+  - docker build -t fango007/multi-client ./client
+  - docker build -t fango007/multi-nginx ./nginx
+  - docker build -t fango007/multi-server ./server
+  - docker build -t fango007/multi-worker ./worker
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push fango2007/multi-client
-  - docker push fango2007/multi-nginx
-  - docker push fango2007/multi-server
-  - docker push fango2007/multi-worker
+  - docker push fango007/multi-client
+  - docker push fango007/multi-nginx
+  - docker push fango007/multi-server
+  - docker push fango007/multi-worker
 
   # test
